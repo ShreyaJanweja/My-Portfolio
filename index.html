@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shreya | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #111;
+      color: #fff;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 80px 0 80px;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    .logo span {
+      color: #ff4c4c;
+    }
+    .nav-links {
+      display: flex;
+      gap: 40px;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #ff4c4c;
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+    .nav-links a:hover {
+      color: #ff4c4c;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background: #111;
+      position: relative;
+    }
+    .home-text {
+      max-width: 600px;
+      animation: fadeInLeft 1.2s;
+    }
+    .home-text h3 {
+      font-size: 1.3rem;
+      color: #aaa;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .home-text h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      margin: 10px 0;
+      line-height: 1.1;
+    }
+    .home-text h1 span {
+      color: #ff4c4c;
+    }
+    .home-text p {
+      color: #ccc;
+      margin-top: 18px;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    .hero-img {
+      width: 370px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      animation: fadeInRight 1.2s;
+    }
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-60px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(60px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+    section {
+      padding: 120px 80px 60px 80px;
+    }
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 24px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #ff4c4c;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+    /* About Section Custom Styles */
+    #about {
+      background: #181818;
+      border-radius: 18px;
+      margin: 60px 0 40px 0;
+      padding: 60px 0;
+      animation: fadeInUp 1.2s;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 60px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .about-img img {
+      width: 300px;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      background: #222;
+    }
+    .about-content {
+      flex: 1;
+      color: #fff;
+    }
+    .about-content h2 {
+      font-size: 2.6rem;
+      margin-bottom: 12px;
+    }
+    .about-content p {
+      color: #bbb;
+      margin-bottom: 24px;
+      font-size: 1.08rem;
+    }
+    .about-tabs {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 18px;
+      border-bottom: 1.5px solid #333;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 10px 0;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+      transition: color 0.2s;
+    }
+    .tab-btn.active,
+    .tab-btn:hover {
+      color: #ff4c4c;
+    }
+    .tab-btn.active::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2.5px;
+      background: #ff4c4c;
+      border-radius: 2px;
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      animation: underline 0.3s;
+    }
+    @keyframes underline {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    .tab-content {
+      display: none;
+      margin-top: 18px;
+    }
+    .tab-content.active {
+      display: block;
+      animation: fadeInUp 0.7s;
+    }
+    .tab-title {
+      display: block;
+      color: #ff4c4c;
+      font-weight: 600;
+      margin-top: 10px;
+      margin-bottom: 2px;
+      font-size: 1.05rem;
+    }
+    /* Skills & Projects */
+    #skills, #projects {
+      background: #111;
+      border-radius: 18px;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.2s;
+    }
+    #contact {
+      background: #181818;
+      border-radius: 18px;
+      text-align: center;
+      padding: 80px 50px;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.2s;
+    }
+    #contact p {
+      color: #bbb;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    @media (max-width: 900px) {
+      nav, section {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      #home, #about {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-img, .about-img img {
+        margin: 0 auto;
+      }
+      #about {
+        max-width: 100%;
+        padding: 40px 0;
+      }
+      .about-img img {
+        width: 200px;
+      }
+      .about-content h2 {
+        font-size: 2rem;
+      }
+    }
+/* Services Section Styles */
+.services-section {
+  background: #111;
+  border-radius: 18px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s;
+}
+.services-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.services-cards {
+  display: flex;
+  gap: 32px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.service-card {
+  background: #232323;
+  border-radius: 18px;
+  padding: 36px 28px 28px 28px;
+  width: 300px;
+  min-height: 260px;
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  transition: background 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.service-card:hover {
+  background: #ff4c4c;
+  color: #fff;
+  transform: translateY(-8px) scale(1.03);
+}
+.service-card .service-icon {
+  margin-bottom: 18px;
+}
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.service-card p {
+  color: #fff;
+  opacity: 0.85;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+.service-card a {
+  color: #fff;
+  text-decoration: underline;
+  font-size: 0.98rem;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.service-card a:hover {
+  opacity: 1;
+}
+.projects-section {
+  background: #111;
+  border-radius: 18px;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.2s;
+}
+.projects-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.projects-cards {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.project-card {
+  position: relative;
+  width: 320px;
+  height: 370px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #232323;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  transition: transform 0.3s;
+  display: flex;
+  align-items: stretch;
+  cursor: pointer;
+}
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s;
+}
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #ff4c4c 80%, rgba(255,76,76,0.0) 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1);
+  padding: 36px 24px;
+  text-align: center;
+  transform: translateY(30px) scale(0.98);
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.project-card:hover img {
+  opacity: 0.7;
+}
+.project-overlay h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.project-overlay p {
+  font-size: 1rem;
+  margin-bottom: 18px;
+  color: #fff;
+}
+.project-link {
+  display: inline-block;
+  background: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background 0.2s;
+}
+.project-link:hover {
+  background: #ff4c4c;
+}
+.project-link svg {
+  vertical-align: middle;
+}
+@media (max-width: 1100px) {
+  .projects-cards {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .project-card {
+    width: 90%;
+    min-width: 240px;
+    height: 320px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Portfolio<span>.</span></div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <div class="home-text">
+      <!-- <h3>Computer Science Engineering Student</h3> -->
+      <h1>Hi, I'm <span>Shreya</span><br></h1>
+      <p>A 2nd Year CSE student passionate about Web Development, Data Structures , and building impactful projects.</p>
+    </div>
+    <!-- <img src="your-photo.jpg" alt="Shreya" class="hero-img"> -->
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="about-img">
+      <img src="mithi profile photo.jpg" alt="Shreya">
+    </div>
+    <div class="about-content">
+      <h2>About Me</h2>
+      <p>I am Shreya , a second year BE student specializing in Computer Science and Engineering at Chitkara University . I am Passionate in Web development including HTML , CSS , Javascript , Exploring mern Stack Development . I have strong command in C , C++ and Python . I actively seek opportunities to learn more through online courses , projects, and collaborating with like-minded peers.</p>
+      <div class="about-tabs">
+        <button class="tab-btn active" data-tab="skills">Skills</button>
+        <button class="tab-btn" data-tab="experience">Experience</button>
+        <button class="tab-btn" data-tab="education">Education</button>
+      </div>
+      <div class="tab-content active" id="skills">
+        <span class="tab-title">Coding Language</span>
+        <p>Python , C , C++ , Java</p>
+        <span class="tab-title">Web Development</span>
+        <p>HTML , CSS , Javascript</p>
+        <span class="tab-title">UI/UX</span>
+        <p>Canva</p>
+      </div>
+      <div class="tab-content" id="experience">
+        <span class="tab-title">Internship</span>
+        <p>Web Developer Intern at SkillCraft Technology</p>
+        <span class="tab-title">Freelance</span>
+        <p>Worked on multiple freelance web projects</p>
+      </div>
+      <div class="tab-content" id="education">
+        <span class="tab-title">B.Tech</span>
+        <p>Computer Science, 2nd Year , from Chitkara University</p>
+        <span class="tab-title">Schooling</span>
+        <p>Sacred Heart Ser. Sec. School</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Replace your current .service-card markup in the Services section with this: -->
+<section id="services" class="services-section">
+  <h2>My Services</h2>
+  <div class="services-cards">
+    <div class="service-card">
+      <div class="service-icon">
+        <!-- Code Icon SVG -->
+        <svg width="40" height="40" fill="#fff"><path d="M10 25l5-5-5-5M30 15l-5 5 5 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="18" y="13" width="4" height="14" rx="2" fill="#fff"/></svg>
+      </div>
+      <h3>Web Design</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+      <a href="#">Learn more</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <!-- UI/UX Icon SVG -->
+        <svg width="40" height="40" fill="#fff"><rect x="8" y="8" width="10" height="10" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="22" y="22" width="10" height="10" rx="2" fill="none" stroke="#fff" stroke-width="2"/></svg>
+      </div>
+      <h3>UI/UX Design</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+      <a href="#">Learn more</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <!-- App Icon SVG -->
+        <svg width="40" height="40" fill="#fff"><circle cx="20" cy="20" r="16" stroke="#fff" stroke-width="2" fill="none"/><path d="M20 12v8l6 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      </div>
+      <h3>App Design</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
+      <a href="#">Learn more</a>
+    </div>
+  </div>
+</section>
+
+<!-- ...existing code... -->
+
+  <!-- Projects -->
+  <section id="projects" class="projects-section">
+  <h2>My Work</h2>
+  <div class="projects-cards">
+    <div class="project-card">
+      <img src="quiz photo.jpg" alt="Social Media App">
+      <div class="project-overlay">
+        <h3>Social Media App</h3>
+        <p>The app connects you to the talented people around the world. Download it from play store.</p>
+        <a href="#" class="project-link">
+          <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="To do photo.jpg" alt="Project 2">
+      <div class="project-overlay">
+        <h3>Gallery App</h3>
+        <p>Browse and organize your photos easily with this modern gallery app.</p>
+        <a href="#" class="project-link">
+          <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="Trip planner photo.jpg" alt="Project 3">
+      <div class="project-overlay">
+        <h3>E-Commerce App</h3>
+        <p>Shop your favorite products with a seamless and secure experience.</p>
+        <a href="#" class="project-link">
+          <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: shreyajanweja26@gmail.com</p>
+    <p>
+      <a href="https://www.linkedin.com/in/shreya-janweja-772a00347/" style="color:#ff4c4c;text-decoration:none;">LinkedIn</a> |
+      <a href="https://github.com/ShreyaJanweja" style="color:#ff4c4c;text-decoration:none;">GitHub</a> |
+      <a href="https://leetcode.com/u/ShreyaJanweja/" style="color: #ff4c4c;text-decoration: none;">LeetCode</a>
+    </p>
+  </section>
+  <script>
+    // Smooth scroll for About link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if(this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if(target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+    // Smooth scroll for Skills link to Services section
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if(this.getAttribute('href') === '#skills') {
+      e.preventDefault();
+      const target = document.querySelector('#services');
+      if(target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
+
+// Smooth scroll for Projects link to Projects section
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if(this.getAttribute('href') === '#projects') {
+      e.preventDefault();
+      const target = document.querySelector('#projects');
+      if(target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+});
+    // Tabs functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(tc => tc.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
