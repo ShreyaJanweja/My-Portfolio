@@ -274,7 +274,7 @@
       }
     }
 /* Services Section Styles */
-.services-section {
+/* .services-section {
   background: #111;
   border-radius: 18px;
   margin-bottom: 40px;
@@ -334,7 +334,7 @@
 }
 .service-card a:hover {
   opacity: 1;
-}
+} */
 .projects-section {
   background: #111;
   border-radius: 18px;
@@ -442,7 +442,7 @@
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#skills">Skills</a>
+      <!-- <a href="#skills">Skills</a> -->
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
@@ -461,7 +461,7 @@
   <!-- About Section -->
   <section id="about">
     <div class="about-img">
-      <img src="mithi profile photo.jpg" alt="Shreya">
+      <img src="shreya.jpg" alt="Shreya">
     </div>
     <div class="about-content">
       <h2>About Me</h2>
@@ -493,42 +493,7 @@
       </div>
     </div>
   </section>
-
-  <!-- Replace your current .service-card markup in the Services section with this: -->
-<section id="services" class="services-section">
-  <h2>My Services</h2>
-  <div class="services-cards">
-    <div class="service-card">
-      <div class="service-icon">
-        <!-- Code Icon SVG -->
-        <svg width="40" height="40" fill="#fff"><path d="M10 25l5-5-5-5M30 15l-5 5 5 5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="18" y="13" width="4" height="14" rx="2" fill="#fff"/></svg>
-      </div>
-      <h3>Web Design</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-      <a href="#">Learn more</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <!-- UI/UX Icon SVG -->
-        <svg width="40" height="40" fill="#fff"><rect x="8" y="8" width="10" height="10" rx="2" fill="none" stroke="#fff" stroke-width="2"/><rect x="22" y="22" width="10" height="10" rx="2" fill="none" stroke="#fff" stroke-width="2"/></svg>
-      </div>
-      <h3>UI/UX Design</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-      <a href="#">Learn more</a>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">
-        <!-- App Icon SVG -->
-        <svg width="40" height="40" fill="#fff"><circle cx="20" cy="20" r="16" stroke="#fff" stroke-width="2" fill="none"/><path d="M20 12v8l6 3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
-      </div>
-      <h3>App Design</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nulla nibh, tincidunt sit amet sapien quis.</p>
-      <a href="#">Learn more</a>
-    </div>
-  </div>
-</section>
-
-<!-- ...existing code... -->
+ 
 
   <!-- Projects -->
   <section id="projects" class="projects-section">
@@ -537,8 +502,8 @@
     <div class="project-card">
       <img src="quiz photo.jpg" alt="Social Media App">
       <div class="project-overlay">
-        <h3>Social Media App</h3>
-        <p>The app connects you to the talented people around the world. Download it from play store.</p>
+        <h3>Interactive Quiz Application</h3>
+        <p>The objective of Quiz Application is to create an interactive and engaging app that allow users to participate in quiz and receive feedbacks. It aims to make learning fun and Interesting .</p>
         <a href="#" class="project-link">
           <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
         </a>
@@ -547,18 +512,18 @@
     <div class="project-card">
       <img src="To do photo.jpg" alt="Project 2">
       <div class="project-overlay">
-        <h3>Gallery App</h3>
-        <p>Browse and organize your photos easily with this modern gallery app.</p>
+        <h3>To Do Web App</h3>
+        <p>TaskMate helps users organize their daily tasks by allowing them to add, edit, and delete tasks with deadlines, categories, and priorities.</p>
         <a href="#" class="project-link">
           <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
         </a>
       </div>
     </div>
     <div class="project-card">
-      <img src="Trip planner photo.jpg" alt="Project 3">
+      <img src="trip planner.png" alt="Project 3">
       <div class="project-overlay">
-        <h3>E-Commerce App</h3>
-        <p>Shop your favorite products with a seamless and secure experience.</p>
+        <h3>Trip planner Website</h3>
+        <p>Plan & Go enables smart destination search with suggestions & allow users to select dates and number of travelers easily for a seamless trip planning experience.</p>
         <a href="#" class="project-link">
           <svg width="28" height="28" fill="#fff"><circle cx="14" cy="14" r="13" stroke="#fff" stroke-width="2" fill="none"/><path d="M14 9v7M14 16h0" stroke="#ff4c4c" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="1.5" fill="#ff4c4c"/></svg>
         </a>
@@ -591,18 +556,6 @@
         }
       });
     });
-    // Smooth scroll for Skills link to Services section
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    if(this.getAttribute('href') === '#skills') {
-      e.preventDefault();
-      const target = document.querySelector('#services');
-      if(target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  });
-});
 
 // Smooth scroll for Projects link to Projects section
 document.querySelectorAll('.nav-links a').forEach(link => {
